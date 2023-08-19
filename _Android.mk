@@ -1,0 +1,11 @@
+LOCAL_PATH := $(call my-dir)
+
+ifeq ($(USE_MITHORIUM_QCOM_HALS),true)
+include $(DEVICE_SPECIFIC_AUDIO_PATH)/Android.mk
+include $(DEVICE_SPECIFIC_MEDIA_PATH)/Android.mk
+ifeq ($(TARGET_USES_Q_DISPLAY_STACK),true)
+include $(DEVICE_SPECIFIC_DISPLAY_PATH)/Android.mk
+else # TARGET_USES_Q_DISPLAY_STACK
+include $(QCOM_SOONG_NAMESPACE)/Android.mk
+endif # TARGET_USES_Q_DISPLAY_STACK
+endif # USE_MITHORIUM_QCOM_HALS
