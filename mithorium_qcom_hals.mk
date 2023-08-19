@@ -3,12 +3,12 @@ USE_DEVICE_SPECIFIC_AUDIO := true
 USE_DEVICE_SPECIFIC_DISPLAY := true
 USE_DEVICE_SPECIFIC_MEDIA := true
 
-ifeq ($(PLATFORM_SDK_VERSION),30)
-# LineageOS 18's display-commonsys-intf repo is too old to use LA.UM.9.6.4 tags
-MITHORIUM_QCOM_HALS_DEFAULT_VARIANT ?= LA.UM.9.6.3.r1-06200-89xx.0
-else
+#ifeq ($(call math_lt,$(PLATFORM_SDK_VERSION),33),true)
+# LineageOS 18/19's display-commonsys-intf repo are too old to use LA.UM.9.6.4 tags
+#MITHORIUM_QCOM_HALS_DEFAULT_VARIANT ?= LA.UM.9.6.3.r1-06200-89xx.0
+#else
 MITHORIUM_QCOM_HALS_DEFAULT_VARIANT ?= LA.UM.9.6.4.r1-05000-89xx.QSSI13.0
-endif
+#endif
 
 # Audio & Media
 ifeq ($(TARGET_KERNEL_VERSION),4.9)
