@@ -41,3 +41,6 @@ else
         $(wildcard vendor/qcom/opensource/commonsys/display) \
         $(wildcard vendor/qcom/opensource/display)
 endif
+ifeq ($(wildcard vendor/lineage/config/BoardConfigQcom.mk),)
+PRODUCT_SOONG_NAMESPACES += $(QCOM_SOONG_NAMESPACE)
+endif
